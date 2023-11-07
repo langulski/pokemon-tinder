@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from src.routes.pokemon import router
 from src.routes.login import auth_router
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 
 api = FastAPI(
@@ -16,6 +17,9 @@ api.mount(
     ),
     name="static",
 )
+
+api.add_middleware(HTTPSRedirectMiddleware)
+
 routers = [router, auth_router]
 
 
