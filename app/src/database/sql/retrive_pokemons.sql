@@ -1,7 +1,7 @@
 SELECT
    pokemons.id,
    pokemons.name,
-   pokemons.description,
+   REPLACE(REPLACE(pokemons.description, '\n', ' '), '\x0c', '') AS description,
    pokemons.hp,
    pokemons.attack,
    pokemons.defense,

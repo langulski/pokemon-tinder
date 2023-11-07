@@ -5,8 +5,14 @@ from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
-from src.database.database import fetch_data_paginated, save_selected_pokemons,retrive_saved_pokemons
-from src.auth.auth import get_current_user_from_cookie, User
+from src.database.database import (
+    fetch_data_paginated,
+    save_selected_pokemons,
+    retrive_saved_pokemons,
+)
+from src.auth.auth import get_current_user_from_cookie
+from src.models.card import CardID
+from src.models.user import User
 
 
 last_id = 1
@@ -21,8 +27,6 @@ def home(
 ):
     context = {"request": request, "user": user}
     return templates.TemplateResponse("home.html", context)
-
-
 
 
 @router.get("/get_more_cards", response_class=JSONResponse)
@@ -54,14 +58,10 @@ def gallery(
     request: Request, user: Annotated[User, Depends(get_current_user_from_cookie)]
 ):
     cards = retrive_saved_pokemons(
-        sql_file="./src/database/sql/retrive_saved_pokemons.sql", user_id=user["id"])
+        sql_file="./src/database/sql/retrive_saved_pokemons.sql", user_id=user["id"]
+    )
     context = {"request": request, "cards": cards, "user": user}
     return templates.TemplateResponse("gallery.html", context)
-
-
-class CardID(BaseModel):
-    id: int
-    love: bool
 
 
 @router.post("/save_liked_card")
@@ -74,6 +74,6 @@ def save_liked_card(
         sql_file="./src/database/sql/save_selected_pokemons.sql",
         user_id=user["id"],
         pokemon_id=card.id,
-        love=card.love
+        love=card.love,
     )
     return {"message": "Card saved successfully"}
