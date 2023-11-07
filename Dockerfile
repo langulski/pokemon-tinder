@@ -14,7 +14,6 @@ RUN set -eux; \
 
 
 COPY app /app
-COPY .env /app/
 COPY requirements.txt /app/
 
 # Install the required Python packages
