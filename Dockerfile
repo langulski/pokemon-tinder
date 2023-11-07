@@ -22,4 +22,4 @@ RUN pip install --upgrade pip \
 EXPOSE 5000
 
 ENTRYPOINT [ "sh", "-c" ]
-CMD ["python3 ./src/database/ingestion.py && uvicorn src.main:api --reload --host 0.0.0.0 --port 5000 --reload-dir src/ --log-level debug"]
+CMD ["python3 ./src/database/ingestion.py && uvicorn src.main:api --proxy-headers --forwarded-allow-ips '*' --host 0.0.0.0 --port 5000"]
