@@ -11,7 +11,9 @@ api = FastAPI(
 
 api.mount(
     "/static",
-    StaticFiles(directory=Path(__file__).parent.parent.absolute() / "templates/static"),
+    StaticFiles(
+        directory=Path(__file__).parent.parent.absolute() / "templates/static/"
+    ),
     name="static",
 )
 routers = [router, auth_router]
