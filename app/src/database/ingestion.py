@@ -1,4 +1,7 @@
 import psycopg2
+from database import PG_CONNECTION_DICT
+
+
 def _read_sql_file(file_path:str):
     try:
         with open(file_path, 'r') as sql_file:
@@ -9,17 +12,12 @@ def _read_sql_file(file_path:str):
 
 
 if __name__ =='__main__':
-    pg_connection_dict = {
-        'dbname': "postgres",
-        'user': "postgres",
-        'password': "postgres",
-        'port': 5432,
-        'host': "postgres"
-    }
+
+
     try:
         tables =_read_sql_file('./migrations/migration_v0.sql')
         data =_read_sql_file('./fixtures/pokemons.sql')
-        conn = psycopg2.connect(**pg_connection_dict)
+        conn = psycopg2.connect(**PG_CONNECTION_DICT)
         cursor = conn.cursor()
         cursor.execute(tables)
         conn.commit()
