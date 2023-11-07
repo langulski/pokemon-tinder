@@ -15,8 +15,6 @@ RUN set -eux; \
 
 COPY app /app
 COPY requirements.txt /app/
-COPY .env /app/.env
-
 # Install the required Python packages
 RUN pip install --upgrade pip \
     pip install --no-cache-dir -r requirements.txt
