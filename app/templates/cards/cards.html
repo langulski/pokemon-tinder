@@ -1,0 +1,42 @@
+<div class="tinder">
+  <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
+
+  <div class="tinder--cards">
+    {% for card in cards %}
+    <div class="tinder--card">
+      <p class="hp">
+        <span>HP</span>
+        {{card.hp}}
+      </p>
+      <img src="{{ card.img_url }}" />
+      <h2 class="poke-name">{{ card.name }}</h2>
+      <div class="types"></div>
+      <div class="stats">
+        <div>
+          <h3>{{card.attack}}</h3>
+          <p>Attack</p>
+        </div>
+        <div>
+          <h3>{{card.defense}}</h3>
+          <p>Defense</p>
+        </div>
+        <div>
+          <h3>{{card.speed}}</h3>
+          <p>Speed</p>
+        </div>
+      </div>
+      <p>{{ card.description }}</p>
+      <p class="invisible-p" style="display: none">{{ card.type_1 }}</p>
+      <p class="invisible-id" style="display: none">{{ card.id }}</p>
+    </div>
+
+    {% endfor %}
+  </div>
+  <div class="tinder--buttons">
+    <button id="nope"><i class="fa fa-remove"></i></button>
+    <button id="love"><i class="fa fa-heart"></i></button>
+  </div>
+</div>

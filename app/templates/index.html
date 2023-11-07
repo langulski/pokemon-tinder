@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poketinder</title>
+    <link href="{{ url_for('static', path='/styles/index.css') }}" rel="stylesheet" />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    rel="stylesheet"
+  />
+    <link
+    href="{{ url_for('static', path='/styles/navbar.css') }}"
+    rel="stylesheet"
+    media="screen"
+  />
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container"></div>
+      {%include './nav/navbar.html'%}
+    </header>
+  {%include './cards/cards.html'%}
+  </body>
+  <script type="module" src="{{ url_for('static', path='/scripts/index.js') }}"></script>
+</html>
