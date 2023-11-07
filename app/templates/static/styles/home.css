@@ -1,3 +1,7 @@
+*:not(input):not(textarea) {
+  user-select: none;
+}
+
 body{
     background: #ffe995;
   text-align:center;
@@ -20,7 +24,7 @@ body{
     line-height:200px;
     display:inline-block;
   }
-  .pokemon i:before{
+  .pokemon .ball:before{
     content:"";
     position:absolute;
     top:50%;

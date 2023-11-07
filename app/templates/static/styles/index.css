@@ -206,6 +206,12 @@
     margin: 20px auto;
   }
 
+  @media (max-width: 600px) {
+    img {
+        max-height: 25vh;
+    }
+    };
+
   .container {
     width:100%;
     height:30px;

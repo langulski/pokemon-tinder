@@ -10,10 +10,10 @@ SELECT
    pokemons.type_2,
    pokemons.img_url
 FROM
-   pokemons
+   selected_pokemons
 
-INNER JOIN selected_pokemons
-ON selected_pokemons.pokemon_id = pokemon_id
+INNER JOIN pokemons
+ON pokemons.id = selected_pokemons.pokemon_id
 WHERE 
 1=1
 AND selected_pokemons.user_id = {user_id}
