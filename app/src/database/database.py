@@ -8,7 +8,7 @@ PG_CONNECTION_DICT = {
     "dbname": os.getenv("DATABASE"),
     "user": os.getenv("USER"),
     "password": os.getenv("PASSWORD"),
-    "port": os.getenv("PORT"),
+    "port": os.getenv("DBPORT"),
     "host": os.getenv("HOST"),
 }
 

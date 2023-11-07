@@ -15,9 +15,13 @@ RUN set -eux; \
 
 COPY app /app
 COPY requirements.txt /app/
+COPY .env /app/.env
 
 # Install the required Python packages
 RUN pip install --upgrade pip \
     pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000
+
+ENTRYPOINT [ "sh", "-c" ]
+CMD ["python3 ./src/database/ingestion.py && uvicorn src.main:api --reload --host 0.0.0.0 --port 5000 --reload-dir src/ --log-level debug"]
