@@ -210,7 +210,23 @@
     img {
         max-height: 25vh;
     }
+    .tinder--buttons{
+      padding-top:15px;
+      margin-bottom:4vh;
+
+    }
+    .tinder--card {
+      margin-top: 15px;
+      height: 70vh;
+      width:320px;
+    }
+    .tinder--card p{
+      font-size: 2vh;
+      padding:  0 5px;
+    }
     };
+
+    
 
   .container {
     width:100%;
