@@ -78,7 +78,8 @@
     border-radius: 8px;
     overflow: hidden;
     position: absolute;
-    will-change: transform;
+    pointer-events:auto;
+    /* will-change: transform; */
     transition: all 0.3s ease-in-out;
     cursor: -webkit-grab;
     cursor: -moz-grab;
@@ -155,6 +156,7 @@
   }
 
   .hp {
+    pointer-events: none;
     width: 80px;
     background-color: #ffffff;
     text-align: center;
@@ -165,18 +167,21 @@
   }
 
   .hp span{
+    pointer-events: none;
     color:#3b3b3b;
     font-size: 14px;
     letter-spacing: 0.4px;
     font-weight: 600;
   }
 .stats  p {
+  pointer-events: none;
   padding: 5px 20px;
   border-radius: 20px;
   color: #ffffff;
 }
 
   .stats {
+    pointer-events: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
